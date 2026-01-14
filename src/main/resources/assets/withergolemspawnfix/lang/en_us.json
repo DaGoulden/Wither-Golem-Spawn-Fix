@@ -1,0 +1,13 @@
+{
+  "itemGroup.withergolemspawnfix": "Example Mod Tab",
+  "block.withergolemspawnfix.example_block": "Example Block",
+  "item.withergolemspawnfix.example_item": "Example Item",
+
+  "withergolemspawnfix.configuration.title": "Wither & Golem Spawn Fix Configs",
+  "withergolemspawnfix.configuration.section.withergolemspawnfix.common.toml": "Wither & Golem Spawn Fix Configs",
+  "withergolemspawnfix.configuration.section.withergolemspawnfix.common.toml.title": "Wither & Golem Spawn Fix Configs",
+  "withergolemspawnfix.configuration.items": "Item List",
+  "withergolemspawnfix.configuration.logDirtBlock": "Log Dirt Block",
+  "withergolemspawnfix.configuration.magicNumberIntroduction": "Magic Number Text",
+  "withergolemspawnfix.configuration.magicNumber": "Magic Number"
+}
