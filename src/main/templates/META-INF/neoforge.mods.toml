@@ -46,7 +46,7 @@ authors="Goulden"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-A mod that fixes the need for air blocks when spawning a creature with a structure-based system.
+A mod that fixes the need of air blocks when spawning a creature with a structure-based system. Also with extra features.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

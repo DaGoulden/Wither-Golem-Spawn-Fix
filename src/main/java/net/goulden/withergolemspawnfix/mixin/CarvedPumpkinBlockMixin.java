@@ -8,14 +8,14 @@ import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
-import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Objects;
+import static net.goulden.withergolemspawnfix.util.FixedStructurePatterns.allowGolemPatternFix;
+import static net.goulden.withergolemspawnfix.util.FixedStructurePatterns.createFixedIronGolemPattern;
 
 @Mixin(CarvedPumpkinBlock.class)
 public class CarvedPumpkinBlockMixin {
@@ -26,17 +26,9 @@ public class CarvedPumpkinBlockMixin {
             cancellable = true
     )
     private static void useFixedIronGolemPattern(CallbackInfoReturnable<BlockPattern> cir) {
+        if (!allowGolemPatternFix) return;
         BlockPattern flexiblePattern = createFixedIronGolemPattern();
         cir.setReturnValue(flexiblePattern);
-    }
-
-    private static BlockPattern createFixedIronGolemPattern() {
-        return BlockPatternBuilder.start()
-                .aisle("~^~", "###", "~#~")
-                .where('^', BlockInWorld.hasState(state -> (state.is(Blocks.CARVED_PUMPKIN) || state.is(Blocks.JACK_O_LANTERN))))
-                .where('#', BlockInWorld.hasState(state -> state.is(Blocks.IRON_BLOCK)))
-                .where('~', BlockInWorld.hasState(Objects::nonNull))
-                .build();
     }
 
     @Inject(
@@ -45,18 +37,14 @@ public class CarvedPumpkinBlockMixin {
             cancellable = true
     )
     private static void customClearPatternBlocks(Level level, BlockPattern.BlockPatternMatch match, CallbackInfo ci) {
-        boolean isWither = false;
 
         BlockState center = match.getBlock(1, 1, 0).getState();
-        if (center.is(BlockTags.WITHER_SUMMON_BASE_BLOCKS)) {
-            isWither = true;
-        }
 
         for (int i = 0; i < match.getWidth(); i++) {
             for (int j = 0; j < match.getHeight(); j++) {
                 boolean shouldRemove = false;
 
-                if (isWither) {
+                if (center.is(BlockTags.WITHER_SUMMON_BASE_BLOCKS)) {
                     if (j == 0) {
                         shouldRemove = true;
                     } else if (j == 1) {
