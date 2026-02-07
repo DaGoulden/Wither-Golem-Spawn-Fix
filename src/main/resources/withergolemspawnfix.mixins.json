@@ -1,9 +1,9 @@
 {
   "required": true,
-  "minVersion": "0.8.5",
+  "minVersion": "0.8",
   "package": "net.goulden.withergolemspawnfix.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "refmap": "flexiblegolems.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "withergolemspawnfix.refmap.json",
   "mixins": [
     "CarvedPumpkinBlockMixin",
     "IronGolemMixin",

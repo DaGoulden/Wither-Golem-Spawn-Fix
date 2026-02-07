@@ -1,26 +1,27 @@
 package net.goulden.withergolemspawnfix.config;
 
-import net.neoforged.neoforge.common.ModConfigSpec;
+
+import net.minecraftforge.common.ForgeConfigSpec;
 
 public class ConfigBuilder {
 
-    public static final ModConfigSpec SERVER_SPEC;
+    public static final ForgeConfigSpec SERVER_SPEC;
     public static final Server SERVER;
 
     static {
-        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
+        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         SERVER = new Server(builder);
         SERVER_SPEC = builder.build();
     }
 
     public static class Server {
 
-        protected final ModConfigSpec.BooleanValue witherPatternFix;
-        protected final ModConfigSpec.BooleanValue golemPatternFix;
-        protected final ModConfigSpec.BooleanValue golemSpawnTeleporter;
-        protected final ModConfigSpec.BooleanValue golemSpawnBlockBreaker;
+        protected final ForgeConfigSpec.BooleanValue witherPatternFix;
+        protected final ForgeConfigSpec.BooleanValue golemPatternFix;
+        protected final ForgeConfigSpec.BooleanValue golemSpawnTeleporter;
+        protected final ForgeConfigSpec.BooleanValue golemSpawnBlockBreaker;
 
-        Server(ModConfigSpec.Builder builder) {
+        Server(ForgeConfigSpec.Builder builder) {
 
             witherPatternFix = builder
                     .comment("Does the Wither have his structure pattern fixed?")

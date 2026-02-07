@@ -25,7 +25,7 @@ public class CarvedPumpkinBlockMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private static void useFixedIronGolemPattern(CallbackInfoReturnable<BlockPattern> cir) {
+    private void useFixedIronGolemPattern(CallbackInfoReturnable<BlockPattern> cir) {
         if (!allowGolemPatternFix) return;
         BlockPattern flexiblePattern = createFixedIronGolemPattern();
         cir.setReturnValue(flexiblePattern);

@@ -3,13 +3,13 @@ package net.goulden.withergolemspawnfix.config;
 import net.goulden.withergolemspawnfix.WitherGolemSpawnFix;
 import net.goulden.withergolemspawnfix.util.FixedStructurePatterns;
 import net.goulden.withergolemspawnfix.util.GolemSpawnSafetyHelper;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.config.ModConfigEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 import static net.goulden.withergolemspawnfix.config.ConfigBuilder.SERVER;
 
-@EventBusSubscriber(modid = WitherGolemSpawnFix.MODID)
+@Mod.EventBusSubscriber(modid = WitherGolemSpawnFix.MODID)
 public class ConfigEvent {
 
     @SubscribeEvent
