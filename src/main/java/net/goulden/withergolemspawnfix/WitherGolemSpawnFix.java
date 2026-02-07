@@ -12,7 +12,7 @@ public class WitherGolemSpawnFix {
 
     public WitherGolemSpawnFix() {
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ConfigBuilder.SERVER_SPEC, "tumod-config.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ConfigBuilder.SERVER_SPEC, "withergolemspawnfix-server.toml");
 
     }
 }
