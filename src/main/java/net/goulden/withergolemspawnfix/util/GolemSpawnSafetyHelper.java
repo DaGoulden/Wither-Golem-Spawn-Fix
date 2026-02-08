@@ -35,13 +35,13 @@ public class GolemSpawnSafetyHelper {
 
         if (!(north || south || east || west || ne || nw || se || sw)) {
             return;
-        } else if (hasOnlyInNorth) {
+        } else if (hasOnlyInNorth && allowGolemTeleport) {
             zSign = 1;
-        } else if (hasOnlyInSouth) {
+        } else if (hasOnlyInSouth && allowGolemTeleport) {
             zSign = -1;
-        } else if (hasOnlyInEast) {
+        } else if (hasOnlyInEast && allowGolemTeleport) {
             xSign = -1;
-        } else if (hasOnlyInWest) {
+        } else if (hasOnlyInWest && allowGolemTeleport) {
             xSign = 1;
         } else {
 
