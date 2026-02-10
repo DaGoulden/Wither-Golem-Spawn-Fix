@@ -38,7 +38,7 @@ public class CarvedPumpkinBlockMixin {
     )
     private static void customClearPatternBlocks(Level level, BlockPattern.BlockPatternMatch match, CallbackInfo ci) {
 
-        if (!(match.getWidth() == 3 && match.getHeight() == 3)) return;
+        if (!(match.getWidth() == 3 && match.getHeight() == 3 && match.getDepth() == 1)) return;
 
         BlockState center = match.getBlock(1, 1, 0).getState();
 
